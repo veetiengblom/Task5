@@ -17,6 +17,7 @@ import java.io.OutputStreamWriter;
 
 public class MainActivity extends AppCompatActivity {
 
+    String s;
     EditText userInput;
     EditText fileName;
 
@@ -52,7 +53,8 @@ public class MainActivity extends AppCompatActivity {
 
     public void writeFile(View v) {
         try {
-            OutputStreamWriter osw = new OutputStreamWriter(context.openFileOutput("newFile.txt", MODE_PRIVATE));
+            s = fileName.getText().toString();
+            OutputStreamWriter osw = new OutputStreamWriter(context.openFileOutput(s, MODE_PRIVATE));
 
             osw.write(String.valueOf(userInput.getText()));
             osw.close();
